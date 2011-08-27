@@ -32,6 +32,7 @@ class Menu_Source_Database extends Menu_Source {
 			{
 				$item = new Menu_Item();
 				$item->id = $row[\Config::get('ta_menu.source.database.id_field')];
+				$item->row = $row;
 				
 				$items[$key] = $item;
 			}
@@ -40,6 +41,7 @@ class Menu_Source_Database extends Menu_Source {
 				$item = new Menu_Item();
 				$item->id = $row[\Config::get('ta_menu.source.database.id_field')];
 				$item->parent = $row[\Config::get('ta_menu.source.database.parent_id_field')];
+				$item->row = $row;
 				
 				$items[$row[\Config::get('ta_menu.source.database.parent_id_field')]]->add_child($item);
 			}

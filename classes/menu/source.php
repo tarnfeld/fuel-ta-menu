@@ -11,6 +11,16 @@ abstract class Menu_Source {
 	
 	public static function render(array $items)
 	{
-		var_dump($items);die(); // Yeah our items
+		$html = "";
+		
+		foreach($items as $item)
+		{
+			$html .= \View::factory(\Config::get('ta_menu.render_view'), array(
+				'item' => $item,
+				'source' => get_class(new static())
+			))->render();
+		}
+		
+		return $html;
 	}
 }
