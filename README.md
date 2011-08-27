@@ -11,6 +11,15 @@ FuelPHP Package to generate recursively nested menu's from multiple sources. Cur
 
 Add `http://github.com/tarnfeld` to your packages config and run `php oil install ta-menu`. Dont forget to include the package in your config.
 
+You will also need to change the "render_view" in the config to the name of a view with similar HTML to this in your app folder....
+
+    <li><?=$item->row['title']?></li>
+	<? if (count($item->children) > 0) { ?>
+		<ul>
+			<?=$source::render($item->children)?>
+		</ul>
+	<? } ?>
+
 ### Sample DB Structure
 
     CREATE TABLE `menu_items` (
