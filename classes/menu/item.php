@@ -34,7 +34,7 @@ class Menu_Item implements \Iterator {
 
 	function next()
 	{
-		++$this->position;
+		$this->position++;
 	}
 
 	function valid()
